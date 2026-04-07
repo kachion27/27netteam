@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="27NetTeam — Được xây dựng bởi Nguyễn Như Hải Đăng. Sinh viên lập trình từ PTIT hợp tác cùng Rikkei Education. Kiến tạo Công nghệ Tương lai.">
+    <meta name="keywords" content="27NetTeam, Nguyễn Như Hải Đăng, PTIT, Rikkei Education, AI, Web Development, Tech Startup">
+    <meta name="author" content="Nguyễn Như Hải Đăng">
+    <link rel="shortcut icon" href="./img/vuông.png" type="image/x-icon">
+    <title>27NetTeam — Kiến Tạo Công Nghệ Tương Lai</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ===================== CURSOR GLOW ===================== -->
+    <div id="cursor-glow" aria-hidden="true"></div>
+
+    <!-- ===================== PARTICLES CANVAS ===================== -->
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+    <!-- ===================== NAVIGATION ===================== -->
+    <nav id="navbar" role="navigation" aria-label="Điều hướng chính">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo" aria-label="27NetTeam Trang chủ">
+                <img width="20%" src="./img/logo.png" alt="27NetTeam">
+            </a>
+            <!-- Language Switcher -->
+            <button class="lang-switcher" id="lang-switcher" aria-label="Chuyển ngôn ngữ">
+                <span class="lang-option lang-option--active" data-lang="vi">VI</span>
+                <span class="lang-divider">/</span>
+                <span class="lang-option" data-lang="en">EN</span>
+            </button>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Mở menu điều hướng" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about" class="nav-link" data-vi="Giới thiệu" data-en="About">Giới thiệu</a></li>
+                <li><a href="#projects" class="nav-link" data-vi="Dự án" data-en="Projects">Dự án</a></li>
+                <li><a href="#skills" class="nav-link" data-vi="Kỹ năng" data-en="Skills">Kỹ năng</a></li>
+                <li><a href="#vision" class="nav-link" data-vi="Tầm nhìn" data-en="Vision">Tầm nhìn</a></li>
+                <li><a href="#contact" class="nav-link nav-link--cta" data-vi="Liên hệ" data-en="Contact">Liên hệ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===================== HERO SECTION ===================== -->
+    <section id="hero" class="hero-section">
+        <div class="hero-bg-grid" aria-hidden="true"></div>
+        <div class="hero-content">
+            <!-- Hero Logo Mark -->
+            <div class="hero-logo reveal">
+                <div class="hero-logo-glow"></div>
+                <div class="hero-logo-ring hero-logo-ring--outer"></div>
+                <div class="hero-logo-ring hero-logo-ring--inner"></div>
+                <svg class="hero-logo-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="hex-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#a855f7" stop-opacity="0.9"/>
+                        </linearGradient>
+                        <linearGradient id="hex-fill" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.06"/>
+                            <stop offset="100%" stop-color="#a855f7" stop-opacity="0.06"/>
+                        </linearGradient>
+                        <filter id="glow-filter">
+                            <feGaussianBlur stdDeviation="2" result="blur"/>
+                            <feMerge>
+                                <feMergeNode in="blur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <polygon points="60,5 110,30 110,90 60,115 10,90 10,30" 
+                             fill="url(#hex-fill)" stroke="url(#hex-gradient)" stroke-width="1.5" filter="url(#glow-filter)"/>
+                    <polygon points="60,18 98,38 98,82 60,102 22,82 22,38" 
+                             fill="none" stroke="url(#hex-gradient)" stroke-width="0.5" opacity="0.3"/>
+                    <text x="60" y="58" text-anchor="middle" font-family="Orbitron, sans-serif" 
+                          font-size="28" font-weight="900" fill="url(#hex-gradient)" filter="url(#glow-filter)">27</text>
+                    <text x="60" y="78" text-anchor="middle" font-family="Orbitron, sans-serif" 
+                          font-size="14" font-weight="500" fill="url(#hex-gradient)" opacity="0.6" letter-spacing="6">NT</text>
+                    <line x1="25" y1="30" x2="35" y2="30" stroke="#00f0ff" stroke-width="1" opacity="0.5"/>
+                    <line x1="85" y1="90" x2="95" y2="90" stroke="#a855f7" stroke-width="1" opacity="0.5"/>
+                    <circle cx="60" cy="5" r="2" fill="#00f0ff" opacity="0.8"/>
+                    <circle cx="60" cy="115" r="2" fill="#a855f7" opacity="0.8"/>
+                </svg>
+            </div>
+            <div class="hero-badge reveal">
+                <span class="badge-dot"></span>
+                <span>PTIT × Rikkei Education</span>
+            </div>
+            <h1 class="hero-title reveal">
+                <span class="title-line title-line--glitch" data-text="27NetTeam">27NetTeam</span>
+            </h1>
+            <p class="hero-subtitle reveal" data-vi="Được xây dựng bởi <span class='highlight-name'>Nguyễn Như Hải Đăng</span>" data-en="Built by <span class='highlight-name'>Nguyễn Như Hải Đăng</span>">
+                Được xây dựng bởi <span class="highlight-name">Nguyễn Như Hải Đăng</span>
+            </p>
+            <p class="hero-tagline reveal" data-vi-text="Kiến Tạo Công Nghệ Tương Lai" data-en-text="Future Tech Builder">
+                <span class="tagline-kanji" aria-hidden="true">未来技術</span>
+                <span class="tagline-main">Kiến Tạo Công Nghệ Tương Lai</span>
+            </p>
+            <div class="hero-cta reveal">
+                <a href="#about" class="btn btn--primary" id="cta-explore">
+                    <span class="btn-text" data-vi="Khám Phá Ngay" data-en="Explore Now">Khám Phá Ngay</span>
+                    <span class="btn-icon">→</span>
+                    <span class="btn-ripple" aria-hidden="true"></span>
+                </a>
+                <a href="#projects" class="btn btn--ghost" id="cta-projects">
+                    <span class="btn-text" data-vi="Xem Dự Án" data-en="View Projects">Xem Dự Án</span>
+                </a>
+            </div>
+        </div>
+        <!-- Scroll indicator - outside hero-content so it sticks to bottom -->
+        <div class="hero-scroll-indicator reveal" aria-hidden="true">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span data-vi="Cuộn xuống" data-en="Scroll Down">Cuộn xuống</span>
+        </div>
+        <div class="hero-decor hero-decor--left" aria-hidden="true">
+            <div class="decor-line"></div>
+            <div class="decor-line"></div>
+            <div class="decor-line"></div>
+        </div>
+        <div class="hero-decor hero-decor--right" aria-hidden="true">
+            <span class="decor-kanji">創造</span>
+            <span class="decor-kanji">革新</span>
+            <span class="decor-kanji">未来</span>
+        </div>
+    </section>
+
+    <!-- ===================== ABOUT SECTION ===================== -->
+    <section id="about" class="about-section">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-number">01</span>
+                <h2 class="section-title" data-vi="Về <span class='text-glow'>Tôi</span>" data-en="About <span class='text-glow'>Me</span>">Về <span class="text-glow">Tôi</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-visual reveal">
+                    <div class="about-avatar-container">
+                        <div class="avatar-ring"></div>
+                        <div class="avatar-inner">
+                            <div class="avatar-icon">
+                                <span class="avatar-kanji">匠</span>
+                            </div>
+                        </div>
+                        <div class="avatar-orbit">
+                            <div class="orbit-dot"></div>
+                        </div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="5">0</span>
+                            <span class="stat-label" data-vi="Dự án" data-en="Projects">Dự án</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="3">0</span>
+                            <span class="stat-label" data-vi="Năm Code" data-en="Years Coding">Năm Code</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="100">0</span>
+                            <span class="stat-label" data-vi="% Đam mê" data-en="% Passion">% Đam mê</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text reveal">
+                    <div class="glass-card about-card">
+                        <p class="about-intro" data-vi="Mình là <strong>Nguyễn Như Hải Đăng</strong>, sinh viên lập trình tại <span class='text-cyan'>Học viện Công nghệ Bưu chính Viễn thông (PTIT)</span>, đang hợp tác cùng <span class='text-purple'>Rikkei Education</span> để vươn xa hơn trong thế giới công nghệ." data-en="I'm <strong>Nguyễn Như Hải Đăng</strong>, a student developer at <span class='text-cyan'>PTIT (Posts and Telecommunications Institute of Technology)</span>, collaborating with <span class='text-purple'>Rikkei Education</span> to push the boundaries of technology.">
+                            Mình là <strong>Nguyễn Như Hải Đăng</strong>, sinh viên lập trình tại 
+                            <span class="text-cyan">Học viện Công nghệ Bưu chính Viễn thông (PTIT)</span>, 
+                            đang hợp tác cùng <span class="text-purple">Rikkei Education</span> để vươn xa hơn 
+                            trong thế giới công nghệ.
+                        </p>
+                        <p data-vi="Từ những dòng code đầu tiên đến việc xây dựng ứng dụng AI, hành trình của mình luôn được thúc đẩy bởi sự tò mò không ngừng và niềm tin rằng công nghệ có thể thay đổi cuộc sống. Mình chuyên về <strong>Phát triển Web</strong>, <strong>Ứng dụng C# WPF</strong>, và <strong>Tích hợp AI</strong>." data-en="From writing my first lines of code to building AI-powered applications, my journey has been driven by an insatiable curiosity and the belief that technology can transform lives. I specialize in <strong>Web Development</strong>, <strong>C# WPF Applications</strong>, and <strong>AI Integration</strong>.">
+                            Từ những dòng code đầu tiên đến việc xây dựng ứng dụng AI, 
+                            hành trình của mình luôn được thúc đẩy bởi sự tò mò không ngừng và niềm tin 
+                            rằng công nghệ có thể thay đổi cuộc sống. Mình chuyên về <strong>Phát triển Web</strong>, 
+                            <strong>Ứng dụng C# WPF</strong>, và <strong>Tích hợp AI</strong>.
+                        </p>
+                        <p data-vi="27NetTeam không chỉ là một thương hiệu — đó là một tầm nhìn. Tầm nhìn nơi một lập trình viên trẻ Việt Nam có thể tạo ra sản phẩm cạnh tranh trên sân chơi toàn cầu. Mỗi dự án hoàn thành đưa tầm nhìn đó đến gần hơn với hiện thực." data-en="27NetTeam is more than a brand — it's a vision. A vision where a young Vietnamese developer can build products that compete on the global stage. Every project I ship brings that vision closer to reality.">
+                            27NetTeam không chỉ là một thương hiệu — đó là một tầm nhìn. Tầm nhìn nơi 
+                            một lập trình viên trẻ Việt Nam có thể tạo ra sản phẩm cạnh tranh trên sân 
+                            chơi toàn cầu. Mỗi dự án hoàn thành đưa tầm nhìn đó đến gần hơn với hiện thực.
+                        </p>
+                        <div class="about-tags">
+                            <span class="tag" data-vi="🚀 Tham vọng" data-en="🚀 Ambitious">🚀 Tham vọng</span>
+                            <span class="tag" data-vi="🧠 Đam mê AI" data-en="🧠 AI Enthusiast">🧠 Đam mê AI</span>
+                            <span class="tag" data-vi="💻 Full-Stack" data-en="💻 Full-Stack">💻 Full-Stack</span>
+                            <span class="tag" data-vi="🇻🇳 Made in Vietnam" data-en="🇻🇳 Made in Vietnam">🇻🇳 Made in Vietnam</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== PROJECTS SECTION ===================== -->
+    <section id="projects" class="projects-section">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-number">02</span>
+                <h2 class="section-title" data-vi="Dự Án <span class='text-glow'>Nổi Bật</span>" data-en="Featured <span class='text-glow'>Projects</span>">Dự Án <span class="text-glow">Nổi Bật</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1: RAIA -->
+                <article class="project-card reveal" id="project-raia">
+                    <div class="project-card-inner glass-card">
+                        <div class="project-glow" aria-hidden="true"></div>
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                    <path d="M2 17l10 5 10-5"/>
+                                    <path d="M2 12l10 5 10-5"/>
+                                </svg>
+                            </div>
+                            <span class="project-status project-status--active">
+                                <span class="status-dot"></span>
+                                <span data-vi="Hoạt động" data-en="Active">Hoạt động</span>
+                            </span>
+                        </div>
+                        <h3 class="project-title">RAIA</h3>
+                        <p class="project-subtitle" data-vi="Bảo vệ AI Thời gian thực" data-en="Real-time AI Protection">Bảo vệ AI Thời gian thực</p>
+                        <p class="project-description" data-vi="Hệ thống bảo mật thông minh sử dụng phân tích AI thời gian thực để phát hiện và ngăn chặn các mối đe dọa. Được xây dựng bằng mô hình học máy tiên tiến và kiến trúc web hiện đại." data-en="An intelligent security system leveraging real-time AI analysis to detect and prevent threats. Built with advanced machine learning models and modern web architecture.">
+                            Hệ thống bảo mật thông minh sử dụng phân tích AI thời gian thực 
+                            để phát hiện và ngăn chặn các mối đe dọa. Được xây dựng bằng mô hình 
+                            học máy tiên tiến và kiến trúc web hiện đại.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">AI/ML</span>
+                            <span class="tech-tag">Real-time</span>
+                            <span class="tech-tag" data-vi="Bảo mật" data-en="Security">Bảo mật</span>
+                            <span class="tech-tag">C#</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="#" class="btn btn--small btn--primary" data-vi="Tìm hiểu thêm" data-en="Learn More">Tìm hiểu thêm</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2: Future AI Tools -->
+                <article class="project-card reveal" id="project-ai-tools">
+                    <div class="project-card-inner glass-card">
+                        <div class="project-glow" aria-hidden="true"></div>
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                                </svg>
+                            </div>
+                            <span class="project-status project-status--dev">
+                                <span class="status-dot"></span>
+                                <span data-vi="Đang phát triển" data-en="In Development">Đang phát triển</span>
+                            </span>
+                        </div>
+                        <h3 class="project-title">AI Toolkit</h3>
+                        <p class="project-subtitle" data-vi="Bộ công cụ AI Tương lai" data-en="Future AI-Powered Tools">Bộ công cụ AI Tương lai</p>
+                        <p class="project-description" data-vi="Bộ công cụ AI thế hệ mới được thiết kế để tự động hóa quy trình làm việc, nâng cao năng suất và mang tự động hóa thông minh vào các tác vụ hàng ngày. Được hỗ trợ bởi các mô hình ngôn ngữ tiên tiến." data-en="A suite of next-generation AI tools designed to automate workflows, enhance productivity, and bring intelligent automation to everyday tasks. Powered by cutting-edge language models.">
+                            Bộ công cụ AI thế hệ mới được thiết kế để tự động hóa quy trình làm việc, 
+                            nâng cao năng suất và mang tự động hóa thông minh vào các tác vụ hàng ngày. 
+                            Được hỗ trợ bởi các mô hình ngôn ngữ tiên tiến.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">GPT</span>
+                            <span class="tech-tag" data-vi="Tự động hóa" data-en="Automation">Tự động hóa</span>
+                            <span class="tech-tag">API</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="#" class="btn btn--small btn--ghost" data-vi="Sắp ra mắt" data-en="Coming Soon">Sắp ra mắt</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3: Web Platform -->
+                <article class="project-card reveal" id="project-web-platform">
+                    <div class="project-card-inner glass-card">
+                        <div class="project-glow" aria-hidden="true"></div>
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="2" y="3" width="20" height="14" rx="2"/>
+                                    <line x1="8" y1="21" x2="16" y2="21"/>
+                                    <line x1="12" y1="17" x2="12" y2="21"/>
+                                </svg>
+                            </div>
+                            <span class="project-status project-status--dev">
+                                <span class="status-dot"></span>
+                                <span data-vi="Lên kế hoạch" data-en="Planning">Lên kế hoạch</span>
+                            </span>
+                        </div>
+                        <h3 class="project-title">NetPortal</h3>
+                        <p class="project-subtitle" data-vi="Nền tảng Cộng đồng Lập trình" data-en="Developer Community Platform">Nền tảng Cộng đồng Lập trình</p>
+                        <p class="project-description" data-vi="Nền tảng kết nối các sinh viên lập trình Việt Nam, nơi trưng bày dự án, đánh giá code, và nhận mentorship từ các chuyên gia trong ngành." data-en="A collaborative platform connecting Vietnamese student developers, featuring project showcases, code reviews, and mentorship from industry professionals.">
+                            Nền tảng kết nối các sinh viên lập trình Việt Nam, nơi trưng bày 
+                            dự án, đánh giá code, và nhận mentorship từ các chuyên gia trong ngành.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Full-Stack</span>
+                            <span class="tech-tag" data-vi="Cộng đồng" data-en="Community">Cộng đồng</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="#" class="btn btn--small btn--ghost" data-vi="Sắp ra mắt" data-en="Coming Soon">Sắp ra mắt</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SKILLS SECTION ===================== -->
+    <section id="skills" class="skills-section">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-number">03</span>
+                <h2 class="section-title" data-vi="Kho <span class='text-glow'>Vũ Khí</span> Công Nghệ" data-en="Tech <span class='text-glow'>Arsenal</span>">Kho <span class="text-glow">Vũ Khí</span> Công Nghệ</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-grid">
+                <!-- Skill 1 -->
+                <div class="skill-card glass-card reveal" id="skill-html-css-js">
+                    <div class="skill-icon-wrapper">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <polyline points="16,18 22,12 16,6"/>
+                                <polyline points="8,6 2,12 8,18"/>
+                                <line x1="14" y1="4" x2="10" y2="20"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="skill-title">HTML / CSS / JS</h3>
+                    <p class="skill-desc" data-vi="Tiêu chuẩn web hiện đại, thiết kế responsive, animation & tương tác" data-en="Modern web standards, responsive design, animations & interactivity">Tiêu chuẩn web hiện đại, thiết kế responsive, animation & tương tác</p>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-level="90" style="--bar-color: var(--cyan);">
+                            <div class="skill-bar-fill"></div>
+                        </div>
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                </div>
+
+                <!-- Skill 2 -->
+                <div class="skill-card glass-card reveal" id="skill-csharp-wpf">
+                    <div class="skill-icon-wrapper">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                                <polyline points="8,10 10,12 8,14"/>
+                                <line x1="12" y1="14" x2="16" y2="14"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="skill-title">C# / WPF</h3>
+                    <p class="skill-desc" data-vi="Ứng dụng desktop, kiến trúc MVVM, hệ sinh thái .NET" data-en="Desktop applications, MVVM architecture, .NET ecosystem">Ứng dụng desktop, kiến trúc MVVM, hệ sinh thái .NET</p>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-level="85" style="--bar-color: var(--purple);">
+                            <div class="skill-bar-fill"></div>
+                        </div>
+                        <span class="skill-percentage">85%</span>
+                    </div>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="skill-card glass-card reveal" id="skill-ai">
+                    <div class="skill-icon-wrapper">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2a4 4 0 0 1 4 4c0 1.1-.9 2-2 2h-4c-1.1 0-2-.9-2-2a4 4 0 0 1 4-4z"/>
+                                <path d="M9 8v2a3 3 0 0 0 6 0V8"/>
+                                <circle cx="12" cy="16" r="4"/>
+                                <path d="M8 16h-4M20 16h-4M12 20v2"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="skill-title" data-vi="Tích hợp AI" data-en="AI Integration">Tích hợp AI</h3>
+                    <p class="skill-desc" data-vi="LLM APIs, prompt engineering, pipeline tự động hóa thông minh" data-en="LLM APIs, prompt engineering, intelligent automation pipelines">LLM APIs, prompt engineering, pipeline tự động hóa thông minh</p>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-level="75" style="--bar-color: var(--neon-pink);">
+                            <div class="skill-bar-fill"></div>
+                        </div>
+                        <span class="skill-percentage">75%</span>
+                    </div>
+                </div>
+
+                <!-- Skill 4 -->
+                <div class="skill-card glass-card reveal" id="skill-system-design">
+                    <div class="skill-icon-wrapper">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="skill-title" data-vi="Thiết kế Hệ thống" data-en="System Design">Thiết kế Hệ thống</h3>
+                    <p class="skill-desc" data-vi="Mẫu kiến trúc, hệ thống mở rộng, nguyên tắc thiết kế API" data-en="Architecture patterns, scalable systems, API design principles">Mẫu kiến trúc, hệ thống mở rộng, nguyên tắc thiết kế API</p>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-level="70" style="--bar-color: var(--neon-green);">
+                            <div class="skill-bar-fill"></div>
+                        </div>
+                        <span class="skill-percentage">70%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== VISION SECTION ===================== -->
+    <section id="vision" class="vision-section">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-number">04</span>
+                <h2 class="section-title" data-vi="Tầm <span class='text-glow'>Nhìn</span>" data-en="The <span class='text-glow'>Vision</span>">Tầm <span class="text-glow">Nhìn</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="vision-content reveal">
+                <div class="vision-quote glass-card">
+                    <div class="quote-mark" aria-hidden="true">"</div>
+                    <blockquote class="vision-text" data-vi="Chúng tôi không chỉ viết code — chúng tôi đang kiến tạo tương lai. 27NetTeam tồn tại để chứng minh rằng công nghệ đẳng cấp thế giới có thể ra đời từ bất cứ đâu, kể cả từ giảng đường Việt Nam." data-en="We're not just writing code — we're architecting the future. 27NetTeam exists to prove that world-class technology can emerge from anywhere, including the lecture halls of Vietnam.">
+                        Chúng tôi không chỉ viết code — chúng tôi đang kiến tạo tương lai. 
+                        27NetTeam tồn tại để chứng minh rằng công nghệ đẳng cấp thế giới 
+                        có thể ra đời từ bất cứ đâu, kể cả từ giảng đường Việt Nam.
+                    </blockquote>
+                    <div class="quote-mark quote-mark--end" aria-hidden="true">"</div>
+                </div>
+                <div class="vision-pillars">
+                    <div class="pillar glass-card reveal">
+                        <div class="pillar-icon">🌏</div>
+                        <h3 data-vi="Tác động Toàn cầu" data-en="Global Impact">Tác động Toàn cầu</h3>
+                        <p data-vi="Xây dựng sản phẩm vượt qua biên giới, phục vụ người dùng trên toàn thế giới." data-en="Building products that transcend borders and serve users worldwide.">Xây dựng sản phẩm vượt qua biên giới, phục vụ người dùng trên toàn thế giới.</p>
+                    </div>
+                    <div class="pillar glass-card reveal">
+                        <div class="pillar-icon">🤖</div>
+                        <h3 data-vi="AI là Ưu tiên" data-en="AI-First Approach">AI là Ưu tiên</h3>
+                        <p data-vi="Tích hợp trí tuệ nhân tạo vào mọi sản phẩm chúng tôi tạo ra." data-en="Integrating artificial intelligence into every product we create.">Tích hợp trí tuệ nhân tạo vào mọi sản phẩm chúng tôi tạo ra.</p>
+                    </div>
+                    <div class="pillar glass-card reveal">
+                        <div class="pillar-icon">🎓</div>
+                        <h3 data-vi="Học & Xây dựng" data-en="Learn & Build">Học & Xây dựng</h3>
+                        <p data-vi="Biến việc học thành sản phẩm và trải nghiệm thực tế." data-en="Turning education into real-world products and experiences.">Biến việc học thành sản phẩm và trải nghiệm thực tế.</p>
+                    </div>
+                </div>
+                <div class="vision-timeline reveal">
+                    <div class="timeline-line" aria-hidden="true"></div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <span class="timeline-year">2024</span>
+                            <p data-vi="Bắt đầu hành trình — học hỏi, xây dựng, ước mơ." data-en="Started the journey — learning, building, dreaming.">Bắt đầu hành trình — học hỏi, xây dựng, ước mơ.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <span class="timeline-year">2025</span>
+                            <p data-vi="Ra mắt RAIA & bắt đầu các dự án tích hợp AI." data-en="Launched RAIA & began AI integration projects.">Ra mắt RAIA & bắt đầu các dự án tích hợp AI.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <span class="timeline-year">2026</span>
+                            <p data-vi="Mở rộng hệ sinh thái — cộng đồng, công cụ & nền tảng." data-en="Expanding the ecosystem — community, tools, & platforms.">Mở rộng hệ sinh thái — cộng đồng, công cụ & nền tảng.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot timeline-dot--future"></div>
+                        <div class="timeline-content glass-card">
+                            <span class="timeline-year" data-vi="Tương lai" data-en="Future">Tương lai</span>
+                            <p data-vi="27NetTeam trở thành thương hiệu công nghệ được công nhận từ Việt Nam." data-en="27NetTeam becomes a recognized tech brand from Vietnam.">27NetTeam trở thành thương hiệu công nghệ được công nhận từ Việt Nam.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CONTACT / CTA SECTION ===================== -->
+    <section id="contact" class="contact-section">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-number">05</span>
+                <h2 class="section-title" data-vi="Cùng Đồng <span class='text-glow'>Hành</span>" data-en="Join the <span class='text-glow'>Journey</span>">Cùng Đồng <span class="text-glow">Hành</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-content reveal">
+                <p class="contact-text" data-vi="Hãy theo dõi hành trình xây dựng tương lai, từng dòng code một. Kết nối và cùng nhau tạo ra điều phi thường." data-en="Follow along as we build the future, one commit at a time. Let's connect and create something extraordinary together.">
+                    Hãy theo dõi hành trình xây dựng tương lai, từng dòng code một. 
+                    Kết nối và cùng nhau tạo ra điều phi thường.
+                </p>
+                <div class="contact-links">
+                    <!-- GitHub -->
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" 
+                       class="contact-link glass-card" id="link-github" aria-label="GitHub Profile">
+                        <div class="contact-link-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </div>
+                        <span class="contact-link-label">GitHub</span>
+                        <span class="contact-link-arrow">→</span>
+                    </a>
+                    <!-- Facebook -->
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" 
+                       class="contact-link glass-card" id="link-facebook" aria-label="Facebook Profile">
+                        <div class="contact-link-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </div>
+                        <span class="contact-link-label">Facebook</span>
+                        <span class="contact-link-arrow">→</span>
+                    </a>
+                    <!-- Email -->
+                    <a href="mailto:contact@27netteam.dev" 
+                       class="contact-link glass-card" id="link-email" aria-label="Gửi Email">
+                        <div class="contact-link-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                <polyline points="22,4 12,13 2,4"/>
+                            </svg>
+                        </div>
+                        <span class="contact-link-label">Email</span>
+                        <span class="contact-link-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer id="footer" class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="footer-logo">[27NT]</span>
+                <p class="footer-tagline" data-vi="Xây dựng công nghệ ngày mai, ngay hôm nay." data-en="Building tomorrow's technology, today.">Xây dựng công nghệ ngày mai, ngay hôm nay.</p>
+            </div>
+            <div class="footer-divider" aria-hidden="true"></div>
+            <p class="footer-copyright" data-vi="© 2026 <strong>27NetTeam</strong> — Được xây dựng bằng <span class='heart' aria-label='tình yêu'>♥</span> & đam mê" data-en="© 2026 <strong>27NetTeam</strong> — Built with <span class='heart' aria-label='love'>♥</span> & passion">
+                © 2026 <strong>27NetTeam</strong> — Được xây dựng bằng <span class="heart" aria-label="tình yêu">♥</span> & đam mê
+            </p>
+            <p class="footer-credit" data-vi="Thiết kế & Phát triển bởi Nguyễn Như Hải Đăng" data-en="Designed & Developed by Nguyễn Như Hải Đăng">
+                Thiết kế & Phát triển bởi Nguyễn Như Hải Đăng
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
